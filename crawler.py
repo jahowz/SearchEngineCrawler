@@ -28,7 +28,6 @@ def crawler(keyword,page):
 		targetUrl = []
 		for i in result:
 			try:
-				print i['href']
 				targetUrl.append(urllib2.urlopen(i['href']).geturl())
 			except BaseException:
 				pass
