@@ -1,7 +1,7 @@
 ## SearchEngineCrawler
 
 
-###How to Use?
+### How to Use?
 ------------------
 > python crawler.py -s 'keyword' [-p pages] 
 
