@@ -2,7 +2,7 @@
 
 
 ### How to Use?
-------------------
+
 > python crawler.py -s 'keyword' [-p pages] 
 
 -s search by keyword
