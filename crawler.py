@@ -1,15 +1,16 @@
-import urllib2,urllib,httplib
+import urllib.request
+import urllib.parse
 import argparse
 from bs4 import BeautifulSoup
 
 def GetHtml(url):
 	headers = {'User-Agent':'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'} 
-	request = urllib2.Request(url=url,headers=headers)
-	return urllib2.urlopen(request).read()
+	request = urllib.request.Request(url=url,headers=headers)
+	return urllib.request.urlopen(request).read()
 
 class BaiduAPI:
 	def __init__(self,keyword):
-		self.url = 'http://www.baidu.com/s?'+urllib.urlencode({'wd':keyword})
+		self.url = 'http://www.baidu.com/s?'+urllib.parse.urlencode({'wd':keyword})
 	def GetUrl(self,pn):
 		return self.url+"&pn=%s"%(pn)
 
@@ -28,7 +29,7 @@ def crawler(keyword,page):
 		targetUrl = []
 		for i in result:
 			try:
-				targetUrl.append(urllib2.urlopen(i['href']).geturl())
+				targetUrl.append(urllib.request.urlopen(i['href']).geturl())
 			except BaseException:
 				pass
 	print '\n'.join(targetUrl)
